@@ -7,34 +7,19 @@ function ControlVille($scope, DataService){
     $scope.longitude2 = 0;
     $scope.lattitude3 = 0;
     $scope.longitude3 = 0;
-    $scope.URL = "http://www.infoclimat.fr/public-api/gfs/json?_ll=";
+    $scope.URL = "http://www.infoclimat.fr/public-api/gfs/json?_ll="; //premiere partie URL
    
     $scope.URLville1 = 0;
     $scope.URLville2 = 0;
     $scope.URLville3 = 0;
+    //deuxieme partie URL
     $scope.URL2 = "&_auth=VU9TRFQqVHZRfFZhAnRWf1A4DjtdK1RzAn4FZgFkVisGbQRlDm5XMV4wA34BLlFnWHUHZAoxCDgGbQB4DH4AYVU%2FUz9UP1QzUT5WMwItVn1Qfg5vXX1UcwJgBWIBZVYrBmQEaQ5tVyteMANhAThRe1hqB2MKMggvBnoAZgxlAGpVNVM%2BVDdUMFE4Vj0CNVZ9UHwOa11rVGwCMwVhAWlWNQZsBGEObVc2XjMDYQE5UXtYbgdhCjIINwZkAGAMYwBqVSlTKFROVEVRI1Z0AnBWN1AlDnNdN1QyAjU%3D&_c=ff6501b3a1976939228fec1d4f807d8a";
     $scope.haveResult = false;
-    $scope.listeVille=[  
-                    
-                ]; 
-  
-   /*
-    $scope.getLattitude = function () {
-           return lattitude;
-   };
-   $scope.getLongitude = function () {
-           return longitude;
-   };
-   $scope.setLattitude = function (valeur) {
-         lattitude = valeur;          
-    };
-    $scope.setLongitude = function (valeur) {
-         longitude = valeur;          
-    };*/
 
+    $scope.listeVille=[]; 
+  
     $scope.search=function(){
        
-
        $scope.listeVille.push( 
             {'lattitude':$scope.lattitude, 'longitude':$scope.longitude, 
             'lattitude2':$scope.lattitude2, 'longitude2':$scope.longitude2 , 
@@ -53,6 +38,32 @@ function ControlVille($scope, DataService){
 
      $scope.getMeteoVille= function(){
         DataService.getMeteoVille($scope.URLville1)
+                    .then(
+                        function(success){
+                            console.log(success);
+                            $scope.meteoVille=success;
+                        },
+                        function(error){
+                            console.log("erreur : "+error);
+                        }
+                    );
+     }
+
+     $scope.getMeteoVille2= function(){
+        DataService.getMeteoVille($scope.URLville2)
+                    .then(
+                        function(success){
+                            console.log(success);
+                            $scope.meteoVille=success;
+                        },
+                        function(error){
+                            console.log("erreur : "+error);
+                        }
+                    );
+     }
+
+     $scope.getMeteoVille3= function(){
+        DataService.getMeteoVille($scope.URLville3)
                     .then(
                         function(success){
                             console.log(success);

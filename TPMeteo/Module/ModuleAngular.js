@@ -1,5 +1,6 @@
 angular.module("ModuleAngular",["ngRoute"])
-    .service("DataService",DataService)
+  .filter("filtrepluie",filtrepluie)
+   .service("DataService",DataService)
    .directive("persoDirective",persoDirective)
    .directive("linkdirective",linkdirective)
    .directive("directiveTemperature",directiveTemperature)

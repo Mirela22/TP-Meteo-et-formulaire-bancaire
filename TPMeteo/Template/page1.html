@@ -9,7 +9,7 @@
       <select>
             <option ng-repeat="(key, value) in meteo" ng-if="$index>4"> {{key.split(' ')[0]}}  </option>
     </select><br>
-<label for ="inpSearch">Search #</label>      
+<label for ="inpSearch">search #</label>      
                             <select  ng-model="search">
                                  <option ng-repeat="(key, value) in meteo" ng-if="$index>4"> {{key.split(' ')[0]}}  </option>
                                  <option value="">All</option>
@@ -22,15 +22,16 @@
 
  <table ng-init="getMeteo()">
                <tr> 
-                          
+                      <th> Date  </th>    
                     <th> Heures  </th>
                     <th> temperature  </th> 
                     <th> Comparaison </th> 
                     <th> détail </th>
                 </tr>
                 <tr ng-repeat="(key,value) in meteo" ng-if="$index >4" >
-            
-                    <td> {{key}}  </td>
+                    
+                    <td> {{key.split(' ')[0]}}  </td>
+                    <td> {{key.split(' ')[1]}} </td>
                     <td> {{convert(value.temperature.sol)}}  </td>
                     <td> Comparaison </td>
                     <td> <input type="button" ng-click="getDetail()" value=" Plus d'infos"  onclick="self.location.href='Template/Detail.html'"> </td>

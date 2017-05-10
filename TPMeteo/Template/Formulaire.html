@@ -2,7 +2,8 @@
         <div id="option">
                 <legend> Ville  1 </legend>
                 <br>
-                <label for="lattitude">Lattitude: </label> <input id= "lattitude" type="text" ng-model="lattitude" name="lattitude"/><br><br>
+                <label for="lattitude">Lattitude: </label>
+                     <input id= "lattitude" type="text" ng-model="lattitude" name="lattitude"/><br><br>
                 <label for="longitude">Longitude :  </label> 
                     <input id= "longitude" type="text" ng-model="longitude" name="longitude"/><br><br>
                 
@@ -12,7 +13,8 @@
         <div id="option">
                 <legend> Ville 2 </legend>
                 <br>
-                <label for="lattitude2">Lattitude: </label> <input id= "lattitude2" type="text" ng-model="lattitude2" name="lattitude2"/><br><br>
+                <label for="lattitude2">Lattitude: </label> 
+                    <input id= "lattitude2" type="text" ng-model="lattitude2" name="lattitude2"/><br><br>
                 <label for="longitude">Longitude :  </label> 
                     <input id= "longitude2" type="text" ng-model="longitude2" name="longitude2"/><br><br>
                 
@@ -22,7 +24,8 @@
         <div id="option">
                 <legend> Ville 3 </legend>
                 <br>
-                 <label for="lattitude3">Lattitude: </label> <input id= "lattitude3" type="text" ng-model="lattitude3" name="lattitude3"/><br><br>
+                 <label for="lattitude3">Lattitude: </label> 
+                    <input id= "lattitude3" type="text" ng-model="lattitude3" name="lattitude3"/><br><br>
                 <label for="longitude">Longitude :  </label> 
                     <input id= "longitude3" type="text" ng-model="longitude3" name="longitude3"/><br><br>
                
@@ -39,21 +42,74 @@
         
         <div ng-if="haveResult" > 
             <p> <a href="{{URLville1}}"> Test du lien </a> </p>
+
+            <h2> Ville 1 </h2>
       
             <table ng-init="getMeteoVille(URLville1)">
+               <tr>       
+                    <th> Heures  </th>
+                    <th> temperature
+                        <br>
+                        <a ng-click="toggle()">Cliquer ici pour changer l'unite: --Kelvin/Degré-- </a> </th> 
+                    
+                </tr>
+                <tr ng-repeat="(key,value) in meteoVille" ng-if="$index >4" >
+                    <td> {{key}}  </td>
+                    <td> <div ng-if="unit">{{convert(value.temperature.sol)}}</div>
+                                <div ng-if="!unit">{{value.temperature.sol}} Kelvin </div>  </td>
+                      
+                </tr>
+        
+            </table> 
+    <br>
+    <br>     
+       </div> 
+
+
+               <div ng-if="haveResult" > 
+            <p> <a href="{{URLville2}}"> Test du lien </a> </p>
+                <h2> Ville 2 </h2>
+      
+            <table ng-init="getMeteoVille2(URLville2)">
                <tr>       
                     <th> Heures  </th>
                     <th> temperature
                         <input type="checkbox" id="Degré" checked="toggle()" value="Degré Celsius">
 
                         <a ng-click="toggle()">Toggle Kelvin/Degré</a> </th> 
-                    <th> Comparaison </th>
+                    
                 </tr>
                 <tr ng-repeat="(key,value) in meteoVille" ng-if="$index >4" >
                     <td> {{key}}  </td>
                     <td> <div ng-if="unit">{{convert(value.temperature.sol)}}</div>
                                 <div ng-if="!unit">{{value.temperature.sol}} Kelvin </div>  </td>
-                    <td> Comparaison </td>   
+                       
+                </tr>
+        
+            </table> 
+    <br>
+    <br>     
+       </div>
+
+               <div ng-if="haveResult" > 
+            <p> <a href="{{URLville3}}"> Test du lien </a> </p>
+
+                <h2> Ville 3 </h2>
+      
+            <table ng-init="getMeteoVille3(URLville3)">
+               <tr>       
+                    <th> Heures  </th>
+                    <th> temperature
+                        <input type="checkbox" id="Degré" checked="toggle()" value="Degré Celsius">
+
+                        <a ng-click="toggle()">Toggle Kelvin/Degré</a> </th> 
+                    
+                </tr>
+                <tr ng-repeat="(key,value) in meteoVille" ng-if="$index >4" >
+                    <td> {{key}}  </td>
+                    <td> <div ng-if="unit">{{convert(value.temperature.sol)}}</div>
+                                <div ng-if="!unit">{{value.temperature.sol}} Kelvin </div>  </td>
+                      
                 </tr>
         
             </table> 

@@ -18,7 +18,9 @@
             <th> Détails </th>
         </tr>
 		<tr ng-repeat="(key,value) in meteo" ng-if="$index >4">
-            <td> {{key.split(' ')[1]}}   </td>
+            <td> {{key.split(' ')[1]}} 
+                <span ng-init=setKey(value.key)></span
+                >  </td>
 			<td > {{value.pluie}}  </td>
             <td ng-init="a = getPluie()">  
                 <img ng-if="a > value.pluie" src="Images\flecherouge.png" style="width:30px; height: 30px; ">
@@ -27,7 +29,10 @@
                 <span ng-init=setPluie(value.pluie)></span
                 ></td>
             <td> {{value.vent_rafales}} </td>
-            <td> <input type="button" ng-click="getDetail()" value=" Plus d'infos"  onclick="self.location.href='Template/Detail.html'"> </td>
+            <td> <input type="button"  value=" Plus d'infos"  onclick="self.location.href='Template/Detail.html'"> 
+                  
+                  <img style="width:40px;height:40px;" ng-src="{{ value.pluie| filtrepluie }}"/>  
+            </td>
         </tr>
     </table> 
 </div>
