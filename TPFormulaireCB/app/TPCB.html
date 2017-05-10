@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+   <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+   <!-- Partie head -->
+   <meta charset="UTF-8">
+   <meta description="je suis la page contacte">
+   <link rel="stylesheet" href="TPCB.css">
+
+
+   <title> Conpte Bancaire </title>
+   </head>
+    <body ng-app="ModuleAngular">
+
+       <div ng-controller="FirstCtrl">
+
+           <fieldset>
+                <legend> Ajout </legend>
+                <br>
+                <label for="info">Info: </label> 
+                    <input id= "formulaire" type="text" ng-model="info" name="info"/><br><br>
+                <label > Sens: </label> 
+                    <select name="sens" ng-model="sens">
+                        <option selected>Credit</option>
+                        <option >Debit</option>
+                    </select> <br><br>
+                <label for="somme">Somme: </label> <input id= "formulaire" type="number" ng-model="somme" name="somme"/><br><br>
+                     <input  id= "formulaire" type="button" ng-click="validate()" ng value="Ajouter" /> <br><br>
+
+                 <div id="option">  
+                     <label for ="inpSearch">Search #</label>      
+                        <input  id= "formulaire" type= "text" id= "inpSearch" ng-model="search"><br>
+                            <select ng-model= "search">
+                                <option value= "Credit"> Credit </option>
+                                <option value= "Debit"> Debit </option>
+                                <option value="">All</option>
+                            
+                            
+                            </select> <br><br>
+                            <label for ="orderBy">Order by #</label> 
+                            <select ng-model= "orderBy" >
+                                <option value= " "> Par odre d'entrée </option>
+                                <option value= "Info"> Info </option>
+                                <option value= "somme"> Somme </option>
+                                <option value= "sens"> Sens </option>
+                            </select>
+                  </div>
+                            <br><br>
+
+                 <div>
+                      <input type="button" ng-click="getMeteo()" value="Meteo" />
+                    <ul>
+                        <li ng-repeat="(key,value) in meteo" ng-if="$index >4">
+                            A {{key}} il fera {{convert(value.temperature.sol)}}
+                        </li>
+                    </ul>
+                </div>
+
+ 
+        </fieldset>
+            <br><br>
+            <div ng-if="haveResult" > 
+                <table class="table" >
+
+                <tr  > 
+                    <th>  </th>                 
+                    <th> Info  </th>
+                    <th> Somme   </th> 
+                    <th> Delete   </th> 
+                </tr>
+
+
+                <tr ng-repeat = "operation in listeOp|filter:search|orderBy:orderBy" ng-class="{isCredit: operation.sens == 'Credit', isDebit: operation.sens == 'Debit'}" >
+                    <td> <img style="width:30px; height: 30px; " ng-src="{{operation.sens |ToIconFilter}}"/>  </td>                 
+                    <td> {{operation.info}}   </td>
+                    <td> {{operation.somme}} <input type="button" ng-click="ispair(operation.somme)" ng value="Pair ou impair ?" id= "isPair">   </td> 
+                   <td> <input id= "delete" type="button" ng-click="removeRow($index)" ng value="Supprimer" ng-model="delete"/>  </td> 
+                </tr>
+        
+            </table>   
+
+               
+       </div>
+    
+        <nav>
+           <a href="#/page1"> page 1</a>
+           <a href="#/"> Accueil</a>
+         </nav>
+       <div ng-view>
+
+           </div>
+       
+     <script src="Filtre/toIcon.js"></script>
+     <script src="Service/IsPair.js"></script>
+     <script src="Service/DataService.js"></script>
+     <script src="Controlleur/FirstCtrl.js"></script>
+     <script src="Controlleur/HomeController.js"></script>
+     <script src="Module/ModuleAngular.js"></script>
+
+
+   </body>
+</html>

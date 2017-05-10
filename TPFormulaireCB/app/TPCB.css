@@ -1,0 +1,130 @@
+
+.isDebit{
+    background-color: pink;
+    font-weight: bold;
+}
+
+.isCredit{
+    background-color : lightgreen;
+}
+
+table {
+font-family: "Lato","sans-serif"; 
+ position: absolute; 
+ left: 25%;   }       /* added custom font-family  */
+
+
+td {                            /* removed the border from the table data rows  */
+text-align: center;    
+width: 10em;                   
+padding: 1em;       }      
+
+th {                              /* removed the border from the table heading row  */
+text-align: center;                
+padding: 1em;
+width: 10em;
+background-color:palevioletred;       /* added a red background color to the heading cells  */
+color: white;       }                 /* added a white font color to the heading text */
+
+/*
+//added all even rows a #eee color : 
+table tr:nth-child(even) {             
+    background-color: #eee;     }
+// added all odd rows a #fff color  :
+table tr:nth-child(odd) {            
+background-color:#fff;      }
+
+input[type=radio] {
+ background-color:transparent;
+ border:none;
+ width:10px;
+ }
+*/
+
+body {
+ font-family:"trebuchet ms",sans-serif;
+ }
+form {
+ background-color:#FAFAFA;
+ padding:10px;
+ width:280px;
+ }
+fieldset {
+  margin-left: auto;
+  margin-right: auto;
+  padding:0 10px 10px 10px;
+  border:1px solid #DF3F3F;
+  width: 400px;
+ }
+legend {
+ color:#DF3F3F;
+ font-weight:bold
+ }
+label {
+ margin-top:10px;
+ display:inline-block;
+ }
+
+input, select, option {
+ background-color:#FFF3F3;
+ }
+ #formulaire,select, option {
+ position: absolute; 
+ left: 45%; 
+ }
+input, select {
+ 
+ padding:3px;
+ border:1px solid #F5C5C5;
+ border-radius:5px;
+ width:200px;
+ box-shadow:1px 1px 2px #C0C0C0 inset;
+ }
+select {
+ margin-top:10px;
+ }
+
+input[type=button] {
+ width:100px;
+ margin-left:5px;
+ box-shadow:1px 1px 1px #D83F3D;
+ }
+
+ #formulaire{
+ position: absolute; 
+ left: 45%; 
+ }
+ 
+input[type=button]:focus,  {
+ background-color:#FFF3F3;
+}
+
+input[type=button]:hover {
+ background-color:hotpink;
+ }
+input[type=button]:active, {
+ background-color:deeppink;
+ box-shadow:1px 1px 1px #D83F3D inset;
+}
+
+#option{
+   border:1px solid grey; 
+   padding:20px;
+   margin: 10px;
+}
+
+#isPair:focus,  {
+ background-color:#FFF3F3;
+}
+
+#isPair[type=button]:hover {
+ background-color:tomato;
+ }
+#isPair[type=button]:active, {
+ background-color:lightblue;
+ box-shadow:1px 1px 1px slategrey;
+}
+
+#delete[type=button]:hover {
+ background-color:red;
+ }
