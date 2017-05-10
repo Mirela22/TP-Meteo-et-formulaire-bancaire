@@ -1,0 +1,34 @@
+
+<div ng-if="!charged">
+    <img  src="progress.gif" id="charged">
+</div>
+
+<div ng-if="charged">
+    <h3> Date : 
+      <select>
+            <option ng-repeat="(key, value) in meteo" ng-if="$index>4"> {{key.split(' ')[0]}}  </option>
+    </select><br>
+    </h3>
+	<table ng-init="getMeteo()">
+		<tr>                  
+			<th> Heures  </th>
+			<th>Pluie</th>
+            <th> Comparaison pluie avec les valeurs précédentes</th>
+			<th>vent rafales</th>
+            <th> Détails </th>
+        </tr>
+		<tr ng-repeat="(key,value) in meteo" ng-if="$index >4">
+            <td> {{key.split(' ')[1]}}   </td>
+			<td > {{value.pluie}}  </td>
+            <td ng-init="a = getPluie()">  
+                <img ng-if="a > value.pluie" src="Images\flecherouge.png" style="width:30px; height: 30px; ">
+                <img ng-if="a < value.pluie" src="Images\flecheverte.png" style="width:30px; height: 30px; ">
+                <img ng-if="a == value.pluie" src="Images\egale.png" style="width:30px; height: 30px; ">
+                <span ng-init=setPluie(value.pluie)></span
+                ></td>
+            <td> {{value.vent_rafales}} </td>
+            <td> <input type="button" ng-click="getDetail()" value=" Plus d'infos"  onclick="self.location.href='Template/Detail.html'"> </td>
+        </tr>
+    </table> 
+</div>
+  

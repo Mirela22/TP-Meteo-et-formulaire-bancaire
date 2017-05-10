@@ -1,0 +1,47 @@
+
+<div ng-if="!charged">
+    <img  src="progress.gif" id="charged">
+</div>
+
+
+<div ng-if="charged">
+      <h3> Date : 
+      <select>
+            <option ng-repeat="(key, value) in meteo" ng-if="$index>4"> {{key.split(' ')[0]}}  </option>
+    </select><br>
+<label for ="inpSearch">Search #</label>      
+                            <select  ng-model="search">
+                                 <option ng-repeat="(key, value) in meteo" ng-if="$index>4"> {{key.split(' ')[0]}}  </option>
+                                 <option value="">All</option>
+                            </select><br>
+
+
+    </h3>
+
+
+
+ <table ng-init="getMeteo()">
+               <tr> 
+                          
+                    <th> Heures  </th>
+                    <th> temperature  </th> 
+                    <th> Comparaison </th> 
+                    <th> détail </th>
+                </tr>
+                <tr ng-repeat="(key,value) in meteo" ng-if="$index >4" >
+            
+                    <td> {{key}}  </td>
+                    <td> {{convert(value.temperature.sol)}}  </td>
+                    <td> Comparaison </td>
+                    <td> <input type="button" ng-click="getDetail()" value=" Plus d'infos"  onclick="self.location.href='Template/Detail.html'"> </td>
+               
+                </tr>
+        
+            </table> 
+</div> 
+
+
+
+
+
+

@@ -7,30 +7,35 @@ angular.module("ModuleAngular",["ngRoute"])
    .controller("FirstCtrl",FirstCtrl)
   .controller("HomeController",HomeController)
   .controller("SecondCtrl",SecondCtrl)
+  .controller("ControlVille",ControlVille)
   .config(function($routeProvider){
     $routeProvider
-    .when("/",{
-      templateUrl:"home.html",
+    .when("/Template/",{
+      templateUrl:"Template/home.html",
       controller:"HomeController"
               })
-    .when("/page1",{
-        templateUrl:"page1.html",
+    .when("/Template/page1",{
+        templateUrl:"Template/page1.html",
         controller:"HomeController"
       })
-      .when("/Page2",{
-        templateUrl:"Page2.html",
+      .when("/Template/Formulaire",{
+        templateUrl:"Template/Formulaire.html",
+        controller:"ControlVille"
+      })
+      .when("/Template/Page2",{
+        templateUrl:"Template/Page2.html",
         controller:"HomeController"
       })
-      .when("/Detail",{
-        templateUrl:"Detail.html",
+      .when("/Template/Detail",{
+        templateUrl:"Template/Detail.html",
         controller:"SecondCtrl"
       })
-      .when("/Page3",{
-        templateUrl:"Page3.html",
+      .when("/Template/Page3",{
+        templateUrl:"Template/Page3.html",
         controller:"HomeController"
       })
      .otherwise({
-          redirectTo:"/"
+          redirectTo:"/Template/"
           });
     });
 

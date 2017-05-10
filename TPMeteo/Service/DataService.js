@@ -31,6 +31,20 @@ return {
             deferred.reject(error.status);
         });
     return deferred.promise;
+},
+
+   getMeteoVille:function(URLville){
+        var deferred=$q.defer();
+        $http({
+            method: "GET",
+            url:URLville,
+            cache:false
+        }).then(function success(response){
+            deferred.resolve(response.data);
+        },function success(error){
+            deferred.reject(error.status);
+        });
+    return deferred.promise;
     }
 };
 
