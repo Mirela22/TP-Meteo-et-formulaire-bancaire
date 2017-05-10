@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+   <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+   <!-- Partie head -->
+   <meta charset="UTF-8">
+   <meta description="je suis la page contacte">
+   <link rel="stylesheet" href="meteo.css">
+
+
+   <title> Conpte Bancaire </title>
+   </head>
+    <body ng-app="ModuleAngular">
+
+          <perso-directive>
+           Mirela
+          </perso-directive>
+    
+        <nav>
+           <li> <a href="#/"> Accueil (Factorielles) </a> <br>
+           <li> <a href="#/page1"> Température </a> <br>
+          <li> <a href="#/Page2"> Pluie/Vent </a> <br>
+          <li> <a href="#/Page3"> Température et temps via Directives </a> <br>
+         </nav>
+
+<br>
+
+    </div>
+
+
+
+       <div ng-view>
+
+           </div>
+       
+
+     <script src="Service/DataService.js"></script>
+     <script src="Directives/persoDirective.js"></script>
+     <script src="Directives/linkdirective.js"></script>
+     <script src="Directives/directiveTemperature.js"></script>
+     <script src="Directives/directiveTemps.js"></script>
+     <script src="Controlleur/FirstCtrl.js"></script>
+     <script src="Controlleur/HomeController.js"></script>
+     <script src="Controlleur/SecondCtrl.js"></script>
+     <script src="Module/ModuleAngular.js"></script>
+
+
+   </body>
+</html>
